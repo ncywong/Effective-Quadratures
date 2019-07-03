@@ -103,7 +103,7 @@ class dr(object):
             raise Exception('training data missing!')
         N,D=training_input.shape
         A=np.concatenate((training_input,np.ones((N,1))),axis=1)
-        x,residual=np.linalg.lstsq(A,training_output)[:2]
+        x,residual=np.linalg.lstsq(A,training_output, rcond=None)[:2]
         u=x[:D]
         c=x[D]
         if r:
